@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="975.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.progGUIController">
+   <children>
+      <TabPane layoutX="16.0" layoutY="26.0" prefHeight="582.0" prefWidth="944.0" style="-fx-border-color: #D3D3D3;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Number Processing">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="553.0" prefWidth="934.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="179.0" layoutX="3.0" layoutY="289.0" stroke="GREY" strokeType="INSIDE" width="200.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="132.0" layoutX="3.0" layoutY="117.0" stroke="GREY" strokeType="INSIDE" width="200.0" />
+                        <Label layoutX="447.0" layoutY="14.0" text="Stats Calc" />
+                        <Button fx:id="numOpenFileBtn" layoutX="24.0" layoutY="52.0" mnemonicParsing="false" onAction="#numOpenFile" prefHeight="25.0" prefWidth="130.0" text="Open File" />
+                        <RadioButton fx:id="numSampleRdioBtn" layoutX="23.0" layoutY="153.0" mnemonicParsing="false" selected="true" text="Sample">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="dataType" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="numPopulationRdioBtn" layoutX="103.0" layoutY="153.0" mnemonicParsing="false" text="Population" toggleGroup="$dataType" />
+                        <Label layoutX="6.0" layoutY="128.0" prefHeight="17.0" prefWidth="191.0" text="Select Incoming Data Source Type:" />
+                        <Button fx:id="numRunStatsBtn" disable="true" layoutX="23.0" layoutY="181.0" mnemonicParsing="false" onAction="#numRunStats" prefHeight="25.0" prefWidth="128.0" text="Run Stats Analysis" />
+                        <Label layoutX="29.0" layoutY="301.0" text="K-Number" />
+                        <TextField fx:id="numKnumTxtField" layoutX="92.0" layoutY="297.0" prefHeight="25.0" prefWidth="79.0" />
+                        <Label layoutX="29.0" layoutY="350.0" text="ColX" />
+                        <ChoiceBox fx:id="numColXdropdown" layoutX="66.0" layoutY="347.0" prefHeight="25.0" prefWidth="112.0" />
+                        <Label layoutX="30.0" layoutY="388.0" text="ColY" />
+                        <ChoiceBox fx:id="numColYdropdown" layoutX="66.0" layoutY="385.0" prefHeight="25.0" prefWidth="112.0" />
+                        <Button fx:id="numRunKMeansBtn" disable="true" layoutX="29.0" layoutY="426.0" mnemonicParsing="false" onAction="#numRunKmeansAnalysis" prefHeight="25.0" prefWidth="155.0" text="Run K-Means Clustering" />
+                        <Label layoutX="374.0" layoutY="56.0" text="Analysis" />
+                        <TextArea fx:id="numResultsTxtArea" editable="false" layoutX="248.0" layoutY="75.0" prefHeight="392.0" prefWidth="337.0" />
+                        <Label fx:id="numFileNameLabel" layoutX="749.0" layoutY="56.0" text="Data" />
+                        <TableView fx:id="numTestTableView" layoutX="592.0" layoutY="73.0" prefHeight="394.0" prefWidth="338.0" />
+                        <Button fx:id="numExprtRsultsBtn" layoutX="374.0" layoutY="489.0" mnemonicParsing="false" onAction="#numExportResults" text="Export Results" />
+                        <Label fx:id="fileLoadResultLabel" layoutX="30.0" layoutY="77.0" text="File Load Result" visible="false" />
+                        <Label layoutX="8.0" layoutY="206.0" prefHeight="22.0" prefWidth="190.0" text="Note: Std Dev is calculated" />
+                        <Label layoutX="7.0" layoutY="228.0" prefHeight="22.0" prefWidth="190.0" text="differently based on source type" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Text Processing">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="txtRunAnalysisBtn" disable="true" layoutX="21.0" layoutY="145.0" mnemonicParsing="false" onAction="#textRunAnalysis" prefHeight="25.0" prefWidth="130.0" text="Run Text Analysis" />
+                        <Button fx:id="txtRunClusteringBtn" disable="true" layoutX="21.0" layoutY="257.0" mnemonicParsing="false" onAction="#textRunClustering" prefHeight="25.0" prefWidth="130.0" text="Run Text Clustering" />
+                        <Button fx:id="txtImportTextBtn" layoutX="21.0" layoutY="64.0" mnemonicParsing="false" onAction="#textOpenFile" prefHeight="25.0" prefWidth="129.0" text="Open File" />
+                        <Label layoutX="509.0" layoutY="47.0" text="Text" />
+                        <TextArea fx:id="txtImportTextField" editable="false" layoutX="176.0" layoutY="64.0" prefHeight="218.0" prefWidth="727.0" />
+                        <Label layoutX="511.0" layoutY="296.0" text="Analysis" />
+                        <TextArea fx:id="txtAnalysisTextField" editable="false" layoutX="175.0" layoutY="313.0" prefHeight="217.0" prefWidth="729.0" />
+                        <Button fx:id="txtExportResults" layoutX="25.0" layoutY="505.0" mnemonicParsing="false" onAction="#textExportResults" prefHeight="25.0" prefWidth="122.0" text="Export Results" />
+                        <Label fx:id="textFileLoadResult" layoutX="21.0" layoutY="89.0" text="File Load Result" visible="false" />
+                        <Label fx:id="textFileNameLabel" layoutX="540.0" layoutY="47.0" text="Filename" visible="false" />
+                        <Button fx:id="txtRunSummaryBtn" disable="true" layoutX="21.0" layoutY="202.0" mnemonicParsing="false" onAction="#textRunSummarise" prefHeight="25.0" prefWidth="130.0" text="Text Summary" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="chartTab" text="Charts">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="loadNumClusteringBtn" disable="true" layoutX="36.0" layoutY="126.0" mnemonicParsing="false" onAction="#loadNumClusteringData" prefHeight="25.0" prefWidth="148.0" text="Number K-Means Clustering" />
+                        <Button fx:id="loadNumAnalysisBtn" disable="true" layoutX="36.0" layoutY="88.0" mnemonicParsing="false" onAction="#loadNumAnalysisSpread" prefHeight="25.0" prefWidth="147.0" text="Number Analysis" />
+                        <Button fx:id="loadTextClusteringBtn" disable="true" layoutX="37.0" layoutY="194.0" mnemonicParsing="false" onAction="#loadTextClustering" prefHeight="25.0" prefWidth="148.0" text="Text Synonym Clustering" />
+                        <Label layoutX="83.0" layoutY="34.0" text="Load Data" />
+                        <ChoiceBox layoutX="84.0" layoutY="326.0" prefWidth="150.0" fx:id="xAxisChoiceBox" />
+                        <ChoiceBox fx:id="yAxisChoiceBox" layoutX="84.0" layoutY="292.0" prefWidth="150.0" />
+                        <Label layoutX="39.0" layoutY="330.0" text="X Axis" />
+                        <Label layoutX="37.0" layoutY="296.0" text="Y Axis" />
+                        <Button fx:id="chartBtn" layoutX="77.0" layoutY="506.0" mnemonicParsing="false" onAction="#LoadChart" text="Chart" />
+                        <RadioButton fx:id="barChartRdioBtn" layoutX="41.0" layoutY="428.0" mnemonicParsing="false" text="Bar Chart">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="chartType" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="scatterChartRdioBtn" layoutX="40.0" layoutY="395.0" mnemonicParsing="false" selected="true" text="Scatter Chart" toggleGroup="$chartType" />
+                        <RadioButton fx:id="lineChartRdioBtn" layoutX="158.0" layoutY="395.0" mnemonicParsing="false" text="Line Chart" toggleGroup="$chartType" />
+                        <RadioButton fx:id="areaChartRdioBtn" layoutX="157.0" layoutY="428.0" mnemonicParsing="false" text="Area Chart" toggleGroup="$chartType" />
+                        <ScrollPane fx:id="chartScrollPane" disable="true" layoutX="321.0" layoutY="7.0" prefHeight="542.0" prefWidth="614.0">
+                           <content>
+                              <Canvas fx:id="clusterCanvas" height="5000.0" width="5000.0" />
+                           </content>
+                        </ScrollPane>
+                        <Pane fx:id="chartPanel" layoutX="325.0" layoutY="54.0" prefHeight="426.0" prefWidth="605.0" />
+                        <Label layoutX="614.0" layoutY="34.0" text="Chart" />
+                        <Button fx:id="loadOGNumDataBtn" disable="true" layoutX="36.0" layoutY="54.0" mnemonicParsing="false" onAction="#loadOGNumData" prefHeight="25.0" prefWidth="147.0" text="Original Number Data" />
+                        <CheckBox fx:id="chartAllDataCheckBox" layoutX="41.0" layoutY="253.0" mnemonicParsing="false" onAction="#disableColumnChoice" text="Chart All Data" />
+                        <Button fx:id="loadTextAnalysisBtn" disable="true" layoutX="37.0" layoutY="161.0" mnemonicParsing="false" onAction="#loadTextKeyFreq" prefHeight="25.0" prefWidth="148.0" text="Text Keywords Freq." />
+                        <TextArea fx:id="dataLoadedTxtField" editable="false" layoutX="193.0" layoutY="57.0" prefHeight="139.0" prefWidth="121.0" />
+                        <Label layoutX="220.0" layoutY="34.0" text="Data Loaded" />
+                        <Button fx:id="chartExprtImgBtn" layoutX="194.0" layoutY="506.0" mnemonicParsing="false" onAction="#exportImage" text="Export Image" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
